@@ -42,6 +42,7 @@ app.post('/webhook', (req, res) => {
     }
 });
 
+// Function that sends the message
 function sendMessage(event) {
   let sender = event.sender.id;
   let text = event.message.text;
@@ -52,7 +53,7 @@ function sendMessage(event) {
     method: 'POST',
     json: {
       recipient: {id: sender},
-      message: {text: "FUCK OFF YOU BASTARD"}
+      message: {text: replyText(text)}
     }
   }, function (error, response) {
     if (error) {
@@ -61,6 +62,15 @@ function sendMessage(event) {
         console.log('Error: ', response.body.error);
     }
   });
+}
+
+// Function that chooses the particular reply
+function replyText(text) {
+    if(text === 'start') {
+        return 'Your New Pomodore Session has been started';
+    }else {
+        return 'Sorry! Can\' recognize this command';
+    }
 }
 
 // Spin up the server
