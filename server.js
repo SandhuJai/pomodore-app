@@ -52,7 +52,7 @@ function sendMessage(event) {
     method: 'POST',
     json: {
       recipient: {id: sender},
-      message: {text: "FUCK OFF"}
+      message: {text: "FUCK OFF YOU BASTARD"}
     }
   }, function (error, response) {
     if (error) {
