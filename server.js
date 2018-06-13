@@ -64,9 +64,24 @@ function sendMessage(event) {
   });
 }
 
+// Function that starts the pomodore session
+function startPomodoreSession() {
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            res({
+                text: 'Time for a break. You can take a break for 7 minutes now'
+            });
+        }, 1000*25);
+    });
+}
+
 // Function that chooses the particular reply
 function replyText(text) {
     if(text === 'start') {
+        startPomodoreSession()
+            .then((res) => {
+                return res.text;
+            });
         return 'Your New Pomodore Session has been started';
     }else {
         return 'Sorry! Can\' recognize this command';
