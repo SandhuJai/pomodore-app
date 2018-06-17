@@ -22,6 +22,7 @@ function init(app) {
                 entry.messaging.forEach((event) => {
                     if (event.message && event.message.text) {
                         // Call Message.js to send a response
+                        console.log(event);
                         message.sendResponse(event);
                     }
                 });

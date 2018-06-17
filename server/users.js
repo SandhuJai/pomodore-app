@@ -3,10 +3,14 @@ class Users {
         this.users = [];
     }
 
-    addUser(id, name, room) {
-        let user = {id,name,room};
-        this.users.push(user);
-        return user;
+    addUser(sender_id) {
+        let user = {sender_id};
+        let repeated = this.users.filter((user) => {
+            if(user.sender_id === sender_id);
+        });
+        if(!repeated[0]) {
+            this.users.push(user);
+        }
     }
 
     removeUser(id) {
