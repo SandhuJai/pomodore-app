@@ -19,7 +19,7 @@ function sendResponse(event) {
 // function that replies to the user with text
 function sendMessage(sender, text) {
     request({
-        url: 'https://graph/facebook.com/v2.6/me/messages',
+        url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token: ACCESS_TOKEN},
         method: 'POST',
         json: {
