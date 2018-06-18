@@ -90,6 +90,17 @@ class Users {
         return (this.users.filter((user) => user.id === id))[0];
     }
 
+    // tells how much time is left with status of time
+    timeLeft(sender_id) {
+        let user = this.getUser(sender_id);
+        let retVal = {
+            type: user.status,
+            time: ((new Date().getTime()) - user.start)/1000
+        };
+
+        return retVal;
+    }
+
     getUserList(room) {
         let users = this.users.filter((user) => user.room === room);
         let namesArray = users.map((user) => user.name);

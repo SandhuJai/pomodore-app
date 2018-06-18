@@ -1,12 +1,5 @@
-const part2 = require('./part2');
+let currTime = new Date().getTime();
 
-users = []
-
-users.push(1);
-users.push(1);
-users.push(1);
-users.push(1);
-
-part2.aisehi(users);
-
-console.log(users);
+setTimeout(() => {
+    console.log((new Date().getTime()) - currTime);
+}, 3000);

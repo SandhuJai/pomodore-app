@@ -17,6 +17,18 @@ function sendResponse(event) {
         sendMessage(sender, 'Logged out of the Pomodore Session');
     }else if(text === 'end') {
         sendMessage(sender, 'Your Task is completed. Noted');
+    }else if(text === 'status') {
+        let sessionTimeLeft = users.timeLeft(sender);
+
+        if(sessionTimeLeft.type === 'session') {
+            sendMessage(sender, `You have ${sessionTimeLeft.time/1000} seconds left in your session`);
+        }else if(sessionTimeLeft.type === 'break'){
+            sendMessage(sender, `You have ${sessionTimeLeft.time/1000} seconds left in your break`);
+        }else if(sessionTimeLeft.type === 'neutral') {
+            sendMessage(sender, 'You are in neutral mode');
+        }else {
+            sendMessage(sender, 'Can\'t understand status');
+        }
     }else {
         sendMessage(sender, 'Can\'t understand your command');
     }
