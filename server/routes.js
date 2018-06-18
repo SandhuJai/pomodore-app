@@ -31,6 +31,17 @@ function init(app, users) {
                             users.startSession(event.sender.id);
                         }else if(event.message.text === 'end') {
                             users.endSession(event.sender.id);
+                        }else if(event.message.text === 'status') {
+                            let sessionTimeLeft = users.timeLeft(sender);
+                            if(sessionTimeLeft.type === 'session') {
+                                sendMessage(sender, `You have ${sessionTimeLeft.time/1000} seconds left in your session`);
+                            }else if(sessionTimeLeft.type === 'break'){
+                                sendMessage(sender, `You have ${sessionTimeLeft.time/1000} seconds left in your break`);
+                            }else if(sessionTimeLeft.type === 'neutral') {
+                                sendMessage(sender, 'You are in neutral mode');
+                            }else {
+                                sendMessage(sender, 'Can\'t understand status');
+                            }
                         }
                         message.sendResponse(event);
                     }
