@@ -93,7 +93,7 @@ class Users {
     // tells how much time is left with status of time
     timeLeft(sender_id) {
         let user = this.getUser(sender_id);
-        let currTime = getTime().getTime();
+        let currTime = new Date().getTime();
         let retVal = {
             type: (user) ? user.status : undefined, 
             time: (user) ? (currTime - user.start)/1000 : undefined
@@ -101,7 +101,7 @@ class Users {
 
         if(user) {
             console.log('Start : ', user.start);
-            console.log('Now : ', new Date().getTime());
+            console.log('Now : ', currTime);
             console.log('Actual : ', currTime - user.start);
             console.log('TIME : ', retVal.time);
         }
