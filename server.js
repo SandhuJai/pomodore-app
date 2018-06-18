@@ -8,6 +8,7 @@ const str = 'pomodore_app';
 const message = require('./server/message');
 const routes = require('./server/routes');
 const {Users} = require('./server/users');
+const pomodore = require('./server/pomodore');
 
 // List of users currently joined in the chat
 let users = new Users();

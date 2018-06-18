@@ -21,6 +21,5 @@ function tick(users) {
 }
 
 module.exports = {
-    tick, 
-    startSession
+    tick
 };
