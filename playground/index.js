@@ -1,5 +1,3 @@
-let currTime = new Date().getTime();
+console.log(1529285388272 - 1529285392776);
 
-setTimeout(() => {
-    console.log((new Date().getTime()) - currTime);
-}, 3000);
+
