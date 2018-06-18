@@ -1,5 +1,6 @@
 const message = require('./message');
 
+// Learn to differentiate between object and array
 function tick(usersObject) {
 
     let currTime = new Date().getTime();
