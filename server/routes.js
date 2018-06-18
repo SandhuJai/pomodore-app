@@ -33,7 +33,9 @@ function init(app, users) {
                             users.endSession(event.sender.id);
                         }else if(event.message.text === 'status') {
                             let sessionTimeLeft = users.timeLeft(event.sender.id);
-                            if(sessionTimeLeft.type === 'session') {
+                            if(sessionTimeLeft.type === undefined) {
+                                sendMessage(event.sender.id, 'User Not found');
+                            }else if(sessionTimeLeft.type === 'session') {
                                 sendMessage(event.sender.id, `You have ${sessionTimeLeft.time/1000} seconds left in your session`);
                             }else if(sessionTimeLeft.type === 'break'){
                                 sendMessage(event.sender.id, `You have ${sessionTimeLeft.time/1000} seconds left in your break`);

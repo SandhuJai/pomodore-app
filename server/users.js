@@ -94,8 +94,8 @@ class Users {
     timeLeft(sender_id) {
         let user = this.getUser(sender_id);
         let retVal = {
-            type: user.status,
-            time: ((new Date().getTime()) - user.start)/1000
+            type: (user) ? user.status : undefined, 
+            time: (user) ? ((new Date().getTime()) - user.start)/1000 : undefined
         };
 
         return retVal;
