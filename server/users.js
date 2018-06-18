@@ -96,7 +96,7 @@ class Users {
         let currTime = new Date().getTime();
         let retVal = {
             type: (user) ? user.status : undefined, 
-            time: (user) ? (currTime - user.start)/1000 : undefined
+            time: (user) ? (currTime - user.start) : undefined
         };
 
         if(user) {
