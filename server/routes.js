@@ -34,15 +34,15 @@ function init(app, users) {
                         }else if(event.message.text === 'status') {
                             let sessionTimeLeft = users.timeLeft(event.sender.id);
                             if(sessionTimeLeft.type === undefined) {
-                                sendMessage(event.sender.id, 'User Not found');
+                                message.sendMessage(event.sender.id, 'User Not found');
                             }else if(sessionTimeLeft.type === 'session') {
-                                sendMessage(event.sender.id, `You have ${sessionTimeLeft.time/1000} seconds left in your session`);
+                                message.sendMessage(event.sender.id, `You have ${sessionTimeLeft.time/1000} seconds left in your session`);
                             }else if(sessionTimeLeft.type === 'break'){
-                                sendMessage(event.sender.id, `You have ${sessionTimeLeft.time/1000} seconds left in your break`);
+                                message.sendMessage(event.sender.id, `You have ${sessionTimeLeft.time/1000} seconds left in your break`);
                             }else if(sessionTimeLeft.type === 'neutral') {
-                                sendMessage(event.sender.id, 'You are in neutral mode');
+                                message.sendMessage(event.sender.id, 'You are in neutral mode');
                             }else {
-                                sendMessage(event.sender.id, 'Can\'t understand status');
+                                message.sendMessage(event.sender.id, 'Can\'t understand status');
                             }
                         }
                         message.sendResponse(event);
