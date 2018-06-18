@@ -2,7 +2,9 @@ const message = require('./message');
 
 function tick(users) {
     let currTime = new Date().getTime();
-    users.forEach(user => {
+
+    for(let i = 0; i < users.length; i++) {
+        let user = users[i];
         if(user.session !== 'neutral') {
             if(currTime - user.start >= user.time) {
                 // The timer was for expiration of the session
@@ -17,7 +19,7 @@ function tick(users) {
                 }
             }
         }
-    });
+    }
 }
 
 module.exports = {
