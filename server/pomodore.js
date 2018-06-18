@@ -1,7 +1,7 @@
 const message = require('./message');
 
 function tick(users) {
-    console.log('HEY HEY HEY');
+    console.log(users);
 
     let currTime = new Date().getTime();
 
