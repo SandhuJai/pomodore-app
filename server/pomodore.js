@@ -1,10 +1,12 @@
 const message = require('./message');
 
-function tick(users) {
+function tick(usersObject) {
 
     let currTime = new Date().getTime();
 
-    Array.prototype.forEach.call(users, user => {
+    let usersArray = usersObject.users;
+
+    usersArray.forEach(user => {
         console.log(user);
         if(user.session !== 'neutral') {
             // if user is in session mode
