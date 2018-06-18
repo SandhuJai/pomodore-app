@@ -24,12 +24,12 @@ app.use(bodyParser.json());
 // Setting all routes
 routes.init(app, users);
 
-// Spin up the server
-app.listen(app.get('port'), function() {
-	console.log('running on port', app.get('port'));
-});
-
 // Set a clock
 setInterval(() => {
     pomodore.tick(users);
 }, 5000);
+
+// Spin up the server
+app.listen(app.get('port'), function() {
+	console.log('running on port', app.get('port'));
+});
