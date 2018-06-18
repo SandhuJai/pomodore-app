@@ -98,6 +98,11 @@ class Users {
             time: (user) ? ((new Date().getTime()) - user.start)/1000 : undefined
         };
 
+        if(user) {
+            console.log('Start : ', user.start);
+            console.log('Now : ', new Date().getTime());
+        }
+
         return retVal;
     }
 
