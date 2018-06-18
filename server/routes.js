@@ -1,6 +1,6 @@
 const message = require('./message');
 
-function init(app) {
+function init(app, users) {
     // Index route
     app.get('/', function (req, res) {
         res.send('Hello world, I am a chat bot');
@@ -23,6 +23,15 @@ function init(app) {
                     if (event.message && event.message.text) {
                         // Call Message.js to send a response
                         console.log(event);
+                        if(event.message.text === 'login') {
+                            users.addUser(event.sender.id);
+                        }else if(event.message.text === 'logout') {
+                            users.removeUser(event.sender.id);
+                        }else if(event.message.text === 'start') {
+                            users.startSession(event.sender.id);
+                        }else if(event.message.text === 'end') {
+                            users.endSession(event.sender.id);
+                        }
                         message.sendResponse(event);
                     }
                 });

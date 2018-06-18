@@ -1,8 +1,12 @@
-const express = require('express');
-const app = express();
+const part2 = require('./part2');
 
-app.listen(5000);
+users = []
 
-setInterval(() => {
-    console.log('Tick');
-}, 1000);
+users.push(1);
+users.push(1);
+users.push(1);
+users.push(1);
+
+part2.aisehi(users);
+
+console.log(users);

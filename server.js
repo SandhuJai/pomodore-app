@@ -6,10 +6,10 @@ const app = express();
 // LOCAL CONSTANTS
 const str = 'pomodore_app';
 const message = require('./server/message');
-const {Users} = require('./server/users');
 const routes = require('./server/routes');
+const {Users} = require('./server/users');
 
-// List of Users
+// List of users currently joined in the chat
 let users = new Users();
 
 app.set('port', (process.env.PORT || 5000));
@@ -21,9 +21,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 // Setting all routes
-routes.init(app);
+routes.init(app, users);
 
 // Spin up the server
 app.listen(app.get('port'), function() {
 	console.log('running on port', app.get('port'));
 });
+
+// Set a clock
+setInterval(() => {
+    pomodore.tick(users);
+}, 5000);

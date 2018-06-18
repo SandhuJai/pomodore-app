@@ -9,21 +9,27 @@ function sendResponse(event) {
     let sender = event.sender.id;
     let text = event.message.text;
 
-    if(text === 'start') {
+    if(text === 'login') {
+        sendMessage(sender, 'Logged in to the Pomodore Session');
+    }else if(text === 'start') {
         sendMessage(sender, 'Your new pomodore session has been started');
+    }else if(text === 'logout') {
+        sendMessage(sender, 'Logged out of the Pomodore Session');
+    }else if(text === 'end') {
+        sendMessage(sender, 'Your Task is completed. Noted');
     }else {
         sendMessage(sender, 'Can\'t understand your command');
     }
 }
 
 // function that replies to the user with text
-function sendMessage(sender, text) {
+function sendMessage(sender_id, text) {
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token: ACCESS_TOKEN},
         method: 'POST',
         json: {
-            recipient: {id: sender},
+            recipient: {id: sender_id},
             message: {text: text}
         }
     }, (err, res) => {
