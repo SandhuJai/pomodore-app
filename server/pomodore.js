@@ -4,6 +4,8 @@ function tick(users) {
 
     let currTime = new Date().getTime();
 
+    console.log('LENGTH : ', users.length);
+
     for(let i = 0; i < users.length; i++) {
         let user = users[i];
         console.log(user);
