@@ -100,6 +100,11 @@ class Users {
         };
 
         if(user) {
+            if(user.status === 'session') {
+                retVal.time = user.session_length - retVal.time;
+            }else if(user.status === 'break') {
+                retVal.time = user.break_length - retVal.time;
+            }
             console.log('Start : ', user.start);
             console.log('Now : ', currTime);
             console.log('Actual : ', currTime - user.start);
