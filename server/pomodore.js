@@ -4,9 +4,9 @@ function tick(users) {
 
     let currTime = new Date().getTime();
 
-    console.log('LENGTH : ', users.length);
+    console.log(users);
 
-    for(let user in users) {
+    Array.prototype.forEach.call(users, user => {
         console.log(user);
         if(user.session !== 'neutral') {
             // if user is in session mode
@@ -24,7 +24,7 @@ function tick(users) {
                 }
             }
         }
-    }
+    });
 }
 
 module.exports = {
