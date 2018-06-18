@@ -32,7 +32,7 @@ function init(app, users) {
                         }else if(event.message.text === 'end') {
                             users.endSession(event.sender.id);
                         }else if(event.message.text === 'status') {
-                            let sessionTimeLeft = users.timeLeft(sender);
+                            let sessionTimeLeft = users.timeLeft(event.sender.id);
                             if(sessionTimeLeft.type === 'session') {
                                 sendMessage(event.sender.id, `You have ${sessionTimeLeft.time/1000} seconds left in your session`);
                             }else if(sessionTimeLeft.type === 'break'){
