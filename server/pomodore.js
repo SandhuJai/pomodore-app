@@ -4,8 +4,6 @@ function tick(users) {
 
     let currTime = new Date().getTime();
 
-    console.log(users);
-
     Array.prototype.forEach.call(users, user => {
         console.log(user);
         if(user.session !== 'neutral') {
