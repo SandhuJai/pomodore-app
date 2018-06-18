@@ -1,12 +1,12 @@
 const message = require('./message');
 
 function tick(users) {
-    console.log(users);
 
     let currTime = new Date().getTime();
 
     for(let i = 0; i < users.length; i++) {
         let user = users[i];
+        console.log(user);
         if(user.session !== 'neutral') {
             // if user is in session mode
             if(user.status === 'session') {
