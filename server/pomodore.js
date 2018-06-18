@@ -6,8 +6,7 @@ function tick(users) {
 
     console.log('LENGTH : ', users.length);
 
-    for(let i = 0; i < users.length; i++) {
-        let user = users[i];
+    for(let user in users) {
         console.log(user);
         if(user.session !== 'neutral') {
             // if user is in session mode
