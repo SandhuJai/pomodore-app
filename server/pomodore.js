@@ -1,6 +1,8 @@
 const message = require('./message');
 
 function tick(users) {
+    console.log('HEY HEY HEY');
+
     let currTime = new Date().getTime();
 
     for(let i = 0; i < users.length; i++) {
