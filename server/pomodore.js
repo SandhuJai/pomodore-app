@@ -3,6 +3,7 @@ const message = require('./message');
 // Learn to differentiate between object and array
 function tick(usersObject) {
 
+    // get the current time of the day
     let currTime = new Date().getTime();
 
     let usersArray = usersObject.users;
