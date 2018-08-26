@@ -1,3 +1,5 @@
+// Playground for Basic playing around purposes
+
 let user1 = {
     name: 'Jaikirat'
 };
