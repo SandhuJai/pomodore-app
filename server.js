@@ -26,7 +26,7 @@ routes.init(app, users);
 
 // Set a clock
 setInterval(() => {
-    pomodore.tick(users);
+    pomodore.tick(users);	// do this every 5 seconds
 }, 5000);
 
 // Spin up the server
